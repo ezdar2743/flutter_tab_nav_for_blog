@@ -1,17 +1,65 @@
-# tab_nav
+# Compare Flutter Tab navigation
 
-A new Flutter project.
+For write an event calendar
 
-## Getting Started
+## BottomNavigationBar
 
-This project is a starting point for a Flutter application.
+###　概要
 
-A few resources to get you started if this is your first Flutter project:
+- シンプルな BottomNavigationBar 実装例。 -　 material design 初期モデル
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 特徴
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# flutter_tab_nav_for_blog
+- Option が多くて Costom がしやすい
+- 個人的にはとても美しいと思います！
+
+### GIF
+
+Inset the GIF
+
+### コード
+
+```
+class _BottomNavigationBarUiState extends State<BottomNavigationBarUi> {
+  int _selectedIndex = 0;
+
+  final _screens = [
+    const Center(
+      child: Text(
+        'HOME',
+        style: TextStyle(fontSize: FontSizes.xxl),
+      ),
+    ),
+    const Center(
+      child: Text(
+        'SEARCH',
+        style: TextStyle(fontSize: FontSizes.xxl),
+      ),
+    )
+  ];
+
+  void _onTab(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _screens[_selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _onTab,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+          ),
+        ],
+      ),
+    );
+  }
+}
+```
