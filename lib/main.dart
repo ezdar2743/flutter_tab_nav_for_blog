@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tab_nav/feature/bottom_navigation_bar/bottom_navigation_bar.dart';
+import 'package:tab_nav/feature/navigation_bar/navigation_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -66,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'TabNav',
-      home: BottomNavigationBarUi(),
+      home: NavigationBarUi(),
     );
   }
 }
